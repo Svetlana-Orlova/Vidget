@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html class="page" lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Виджет новостной ленты</title>
+  <link rel="preload" href="css/styles.min.css" as="style">
+  <link rel="stylesheet" href="css/styles.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body class="page-body">
+  <header class="page-header">
+    <h1 class="page-title">NEWS</h1>
+  </header>
+  <main class="page-main container">
+    <ul class="list">
+      <li class="item">
+        <h2 class="item__name">Новость 1</h2>
+        <img class="item__img" src="img/news1.jpg" alt="Новость-1" width="50" height="100">
+      </li>
+      <li class="item">
+        <h2 class="item__name">Новость 2</h2>
+        <img class="item__img" src="img/news2.jpg" alt="Новость-2" width="50" height="100">
+      </li>
+      <li class="item">
+        <h2 class="item__name">Новость 3</h2>
+        <img class="item__img" src="img/news3.jpg" alt="Новость-3" width="50" height="100">
+      </li>
+      <li class="item">
+        <h2 class="item__name">Новость 4</h2>
+        <img class="item__img" src="img/news4.jpg" alt="Новость-4" width="50" height="100">
+      </li>
+      <li class="item">
+        <h2 class="item__name">Новость 5</h2>
+        <img class="item__img" src="img/news5.jpg" alt="Новость-5" width="50" height="100">
+      </li>
+    </ul>
+    <button class="new-news">
+      <img class="new-news__img" src="img/mail.svg" alt="Новые сообщения" width="100" height="100">
+    </button>
+    <div class="news-counter">2</div>
+    <div class="empty-lenta visually-hidden">У Вас нет сообщений.</div>
+  </main>
+
+
+  <div class="lenta lenta--closed">
+    <h3 class="lenta-header visually-hidden">Лента новостей</h3>
+    <button class="close-lenta button">×</button>
+    <ul class="lenta__news">
+    </ul>
+  </div>
+
+  <template id="message">
+    <li class="lenta__news-item">
+      <a href="#" class="close-button button" alt="Закрыть"></a>
+      <h4 class="lenta__news-title">Смартфоны должны подешеветь</h4>
+      <p class="lenta__news-author">C.K.Brouner</p>
+      <span class="lenta__news-data">23.01.2021 15:43</span>
+      <a class="lenta__news-link" href="#" target="_blank">Подробнее..</a>
+      <p class="lenta__news-status"><button class="check button">Отметить прочитанным</button></p>
+    </li>
+  </template>
+
+  <script src="bundle.js"></script>
+</body>
+
+</html>
