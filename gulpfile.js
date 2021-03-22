@@ -16,7 +16,7 @@ const del = require("del");
 
 const styles = () => {
   return gulp
-    .src("source/less/style.less")
+    .src("docs/less/style.less")
     .pipe(plumber())
     .pipe(sourcemap.init())
     .pipe(less())
@@ -35,7 +35,7 @@ exports.styles = styles;
 
 const sprite = () => {
   return gulp
-    .src("source/img/**/icon-*.svg")
+    .src("docs/img/**/icon-*.svg")
     .pipe(svgstore())
     .pipe(rename("sprite.svg"))
     .pipe(gulp.dest("build/img"));
@@ -63,9 +63,9 @@ exports.images = images;
 
 const webpImage = () => {
   return gulp
-    .src("source/img/**/*.{jpg,png}")
+    .src("docs/img/**/*.{jpg,png}")
     .pipe(webp({ quality: 90 }))
-    .pipe(gulp.dest("source/img"));
+    .pipe(gulp.dest("docs/img"));
 };
 
 exports.webp = webpImage;
@@ -76,14 +76,14 @@ const copy = () => {
   return gulp
     .src(
       [
-        "source/fonts/**/*.{woff,woff2}",
-        "source/img/**",
-        "source/bundle.js",
-        "source/js/**",
-        "source/*.html",
+        "docs/fonts/**/*.{woff,woff2}",
+        "docs/img/**",
+        "docs/bundle.js",
+        "docs/js/**",
+        "docs/*.html",
       ],
       {
-        base: "source",
+        base: "docs",
       }
     )
     .pipe(gulp.dest("build"));
@@ -124,7 +124,7 @@ exports.server = server;
 
 const html = () => {
   return gulp
-  .src("source/*.html")
+  .src("docs/*.html")
   .pipe(gulp.dest("build/"));
 };
 exports.html = html;
@@ -140,9 +140,9 @@ exports.refresh = refresh;
 // Watcher
 
 const watcher = () => {
-  gulp.watch("source/less/**/*.less", gulp.series(styles));
-  gulp.watch("source/*.html", gulp.series(html, refresh));
-  gulp.watch("source/img/**/*.{jpg,png}", gulp.series(clean, copy, refresh));
+  gulp.watch("docs/less/**/*.less", gulp.series(styles));
+  gulp.watch("docs/*.html", gulp.series(html, refresh));
+  gulp.watch("docs/img/**/*.{jpg,png}", gulp.series(clean, copy, refresh));
 };
 
 exports.default = gulp.series(build, server, watcher);

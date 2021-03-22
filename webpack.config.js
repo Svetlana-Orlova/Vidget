@@ -2,15 +2,15 @@ const path = require("path");
 
 module.exports = {
   entry: [
-    "./source/js/util.js",
-    "./source/js/message.js",
-    "./source/js/counter.js",
-    "./source/js/start.js",
-    "./source/js/items.js"
+    "./docs/js/util.js",
+    "./docs/js/message.js",
+    "./docs/js/counter.js",
+    "./docs/js/start.js",
+    "./docs/js/items.js"
   ],
   output: {
     filename: "bundle.js",
-    path: path.resolve(__dirname, "source"),
+    path: path.resolve(__dirname, "docs"),
     iife: true
   },
   optimization: {
