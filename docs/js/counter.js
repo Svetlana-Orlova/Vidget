@@ -1,10 +1,10 @@
 "use strict";
 
 const counter = document.querySelector(".news-counter");
-const updateCounterValue = function() {
-  const statusesNotRead = document.querySelectorAll(".not-read");
-  counter.textContent = statusesNotRead.length;
-  if (counter.textContent==="0") {
+const updateCounterValue = () => {
+  const unreadStatuses = document.querySelectorAll(".unread");
+  counter.textContent = unreadStatuses.length;
+  if (unreadStatuses.length === 0) {
     counter.classList.add("news-counter--closed");
   }
 };

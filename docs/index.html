@@ -6,6 +6,7 @@
   <title>Виджет новостной ленты</title>
   <link rel="preload" href="css/styles.min.css" as="style">
   <link rel="stylesheet" href="css/styles.min.css">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
@@ -36,29 +37,29 @@
         <img class="item__img" src="img/news5.jpg" alt="Новость-5" width="50" height="100">
       </li>
     </ul>
-    <button class="new-news">
-      <img class="new-news__img" src="img/mail.svg" alt="Новые сообщения" width="100" height="100">
+    <button class="extra-news">
+      <img class="extra-news__img" src="img/mail.svg" alt="Новые сообщения" width="100" height="100">
     </button>
     <div class="news-counter">2</div>
-    <div class="empty-lenta visually-hidden">У Вас нет сообщений.</div>
+    <div class="empty-feed visually-hidden">У Вас нет сообщений.</div>
   </main>
 
 
-  <div class="lenta lenta--closed">
-    <h3 class="lenta-header visually-hidden">Лента новостей</h3>
-    <button class="close-lenta button">×</button>
-    <ul class="lenta__news">
+  <div class="feed feed--closed">
+    <h3 class="feed-header visually-hidden">Лента новостей</h3>
+    <button class="close-feed button">×</button>
+    <ul class="feed__news">
     </ul>
   </div>
 
   <template id="message">
-    <li class="lenta__news-item">
+    <li class="feed__news-item">
       <a href="#" class="close-button button" alt="Закрыть"></a>
-      <h4 class="lenta__news-title">Смартфоны должны подешеветь</h4>
-      <p class="lenta__news-author">C.K.Brouner</p>
-      <span class="lenta__news-data">23.01.2021 15:43</span>
-      <a class="lenta__news-link" href="#" target="_blank">Подробнее..</a>
-      <p class="lenta__news-status"><button class="check button">Отметить прочитанным</button></p>
+      <h4 class="feed__news-title">Смартфоны должны подешеветь</h4>
+      <p class="feed__news-author">C.K.Brouner</p>
+      <span class="feed__news-data">23.01.2021 15:43</span>
+      <a class="feed__news-link" href="#" target="_blank">Подробнее..</a>
+      <p class="feed__news-status"><button class="check button">Отметить прочитанным</button></p>
     </li>
   </template>
 

@@ -1,6 +1,5 @@
 const gulp = require("gulp");
 const plumber = require("gulp-plumber");
-const sourcemap = require("gulp-sourcemaps");
 const less = require("gulp-less");
 const postcss = require("gulp-postcss");
 const autoprefixer = require("autoprefixer");
@@ -8,8 +7,6 @@ const sync = require("browser-sync").create();
 const csso = require("gulp-csso");
 const rename = require("gulp-rename");
 const imagemin = require("gulp-imagemin");
-const webp = require("gulp-webp");
-const svgstore = require("gulp-svgstore");
 const del = require("del");
 
 // Styles
@@ -18,30 +15,16 @@ const styles = () => {
   return gulp
     .src("docs/less/style.less")
     .pipe(plumber())
-    .pipe(sourcemap.init())
     .pipe(less())
     .pipe(postcss([autoprefixer()]))
     .pipe(gulp.dest("build/css"))
     .pipe(csso())
     .pipe(rename("styles.min.css"))
-    .pipe(sourcemap.write("."))
     .pipe(gulp.dest("build/css"))
     .pipe(sync.stream());
 };
 
 exports.styles = styles;
-
-//svgsprite
-
-const sprite = () => {
-  return gulp
-    .src("docs/img/**/icon-*.svg")
-    .pipe(svgstore())
-    .pipe(rename("sprite.svg"))
-    .pipe(gulp.dest("build/img"));
-};
-
-exports.sprite = sprite;
 
 //images
 
@@ -59,24 +42,12 @@ const images = () => {
 
 exports.images = images;
 
-//webp
-
-const webpImage = () => {
-  return gulp
-    .src("docs/img/**/*.{jpg,png}")
-    .pipe(webp({ quality: 90 }))
-    .pipe(gulp.dest("docs/img"));
-};
-
-exports.webp = webpImage;
-
 //copy
 
 const copy = () => {
   return gulp
     .src(
       [
-        "docs/fonts/**/*.{woff,woff2}",
         "docs/img/**",
         "docs/bundle.js",
         "docs/js/**",
@@ -101,7 +72,7 @@ exports.clean = clean;
 
 //build
 
-const build = gulp.series(clean, copy, styles, sprite);
+const build = gulp.series(clean, copy, styles);
 exports.build = build;
 
 // Server
