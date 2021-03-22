@@ -2,4 +2,4 @@
 
 Чтобы код заработал, необходимо в командной строке консоли ввести "npm install ." , затем "npm run build" и потом "npm start".
 
-Ссылка на готовую страницу: https://svetlana-orlova.github.io/widget/
+Ссылка на готовую страницу: https://svetlana-orlova.github.io/Widget/
